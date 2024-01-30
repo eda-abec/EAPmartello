@@ -9,7 +9,7 @@ from core import cli
 from core import utils
 from eap_user_file import EAPUserFile
 from hostapd_config import HostapdConfig
-from hostapd import HostapdEaphammer
+from hostapd import HostapdEapmartello
 
 
 
@@ -51,7 +51,7 @@ def reap_creds(options):
         hostapd_conf.write()
 
         # start hostapd
-        hostapd = HostapdEaphammer(settings, options)
+        hostapd = HostapdEapmartello(settings, options)
         hostapd.start()
 
         # pause execution until user quits
@@ -73,8 +73,6 @@ def reap_creds(options):
             eap_user_file.remove()
 
         if options['mac_whitelist'] is not None or options['mac_blacklist'] is not None:
-            print("mac white")
-
             # remove acl file from tmp directory
             hostapd_acl.remove()
 
