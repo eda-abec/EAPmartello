@@ -18,6 +18,7 @@ Files in the dependencies folder can be safely deleted after setup, only the lib
 ### Implemented
 - less dependencies, do only WPA Enterprise evil twin
 - current version (that is still compatible) of OpenSSL - 1.1.1.a
+- continual flushing of logfile
 
 
 ### TODO

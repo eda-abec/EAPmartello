@@ -22,3 +22,10 @@ clean_setup:
 	cd dependencies && rm -rf openssl hostapd-eaphammer
 
 libhostapd-eaphammer.so: setup
+
+purge_output:
+	@for file in output/*; do \
+		echo "[] $$file"; \
+		./purger.py $$file output_clean/$$(basename $$file)_gtc.csv output_clean/$$(basename $$file)_mschapv2.log; \
+	done
+	@find output -empty -delete
