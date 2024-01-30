@@ -7,7 +7,7 @@ import time
 import core.utils
 
 
-class HostapdEaphammer(object):
+class HostapdEapmartello(object):
 
     def __init__(self, settings, options):
 
@@ -60,10 +60,7 @@ class HostapdEaphammer(object):
         print('[hostapd] Event loop terminated.')
 
         if self.thread.is_alive():
-            print('[hostapd] Hostapd worker still running... waiting for it to join.')
             self.thread.join(5)
-            print()
-            print('[hostapd] Worker joined.')
 
         print('[hostapd] AP disabled.')
         print()
