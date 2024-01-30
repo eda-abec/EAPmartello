@@ -1,6 +1,7 @@
 import os
 import json
 import shutil
+import random
 
 class HostapdConfig(object):
 
@@ -241,6 +242,8 @@ class HostapdConfig(object):
 
         if options['bssid'] is None:
             general_configs['bssid'] = settings.dict['core']['hostapd']['general']['bssid']
+            # randomize bytes 4-8
+            general_configs['bssid'] = general_configs['bssid'][:6] + "{:02x}:{:02x}".format(random.randint(0, 0xFF), random.randint(0, 0xFF)) + general_configs['bssid'][8:]
         else:
             general_configs['bssid'] = options['bssid']
 
